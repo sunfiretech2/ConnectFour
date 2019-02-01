@@ -16,7 +16,7 @@ public class Board {
     Scanner sc = new Scanner(System.in);
     //StringBuilder str = new StringBuilder();
     
-    //constructor will set the initial boardValue as spaces 
+    //constructor will set the initial boardValue as spaces --good
    public Board(){
        
        for(int i = 0; i<boardValues.length; i++){
@@ -28,32 +28,22 @@ public class Board {
    
    //Display the board and values.  row 1 will be at bottom
    public void displayBoard(){
-       //loop through column first
-       System.out.println("\b");
-       System.out.println(" 0 1 2 3 4");
-       System.out.println(" _ _ _ _ _");
-       for(int i = boardValues.length - 1; i >= 0; i--){           
-           System.out.print("|");
-           for(int j = 0; j < boardValues[i].length; j++){
-               System.out.print(boardValues[i][j] +"|");
-           }
-           System.out.println("");
-       }
-   }
-   
-      public void displayBoard(char[][] board){
-       //loop through column first
-       System.out.println("\b");
-       System.out.println(" 0 1 2 3 4");
-       System.out.println(" _ _ _ _ _");
-       for(int i = board.length - 1; i >= 0; i--){           
-           System.out.print("|");
-           for(int j = 0; j < board[i].length; j++){
-               System.out.print(board[i][j] +"|");
-           }
-           System.out.println("");
-       }
-   }
+       displayBoard(boardValues);
+    }
+
+    private void displayBoard(char[][] board) {
+        //loop through column first
+        System.out.println("\b");
+        System.out.println(" 0 1 2 3 4");
+        System.out.println(" _ _ _ _ _");
+        for (int i = board.length - 1; i >= 0; i--) {
+            System.out.print("|");
+            for (int j = 0; j < board[i].length; j++) {
+                System.out.print(board[i][j] + "|");
+            }
+            System.out.println("");
+        }
+    }
  
    public void selectColumn(){
        boolean verify = true;
@@ -96,7 +86,6 @@ public class Board {
    
     public int placePiece(char piece, int c, char[][] board) {
         int row = -1;
-        //int row = 4;
         for (int r = 0; r < board.length; r++) {
             if (board[r][c] == '_') {
                 board[r][c] = piece;
@@ -126,6 +115,7 @@ public class Board {
        for (int c = 0; c < board.length; ++c) {
          if (board[4][c] == '_') {
              rval = false;
+             break;
          }
        }
        
@@ -149,7 +139,7 @@ public class Board {
        }
        return move;
    }
-   
+   ///may change --Ali
    private void artificalIntelligenceMove() {
        int bestWins = 0;
        int bestColumn = -1;
@@ -252,7 +242,7 @@ public class Board {
             }
         }
     }
-   
+   // Finish this claude
    public void evaluateDiagDown(StringBuilder str, char[][] board){
        int row = this.row;
        int column = this.column;
@@ -280,7 +270,7 @@ public class Board {
             }
         }  */     
    }
-
+   // combine with char string col
     public boolean checkWin(char[][] board, int r, int c) {
         boolean win = false;
         StringBuilder str = new StringBuilder();
